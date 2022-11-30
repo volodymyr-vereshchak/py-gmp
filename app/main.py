@@ -37,6 +37,7 @@ def write_csv_file(
 
 
 async def main():
+    connection_list = []
     headers = {
         "Authorization": ""
     }
@@ -51,8 +52,7 @@ async def main():
             "filter": "manufacturerName:RGC PRODUCTION",
         }
         payload["limit"] = await get_total_elements(client, CONTACTED_URL, payload)
-        smart_list = await get_smart_list(client, payload)
-        connection_list = []
+        smart_list = await get_smart_list(client, payload)        
         single_payload = {
             "from": "20221120",
             "to": "20221130",
